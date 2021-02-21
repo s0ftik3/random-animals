@@ -1,0 +1,21 @@
+{
+  "name": "random-animals",
+  "version": "1.0.0",
+  "description": "A Telegram bot that generates random animal name and a picture for it.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "telegram-bot"
+  ],
+  "author": "Vyacheslav",
+  "license": "MIT",
+  "dependencies": {
+    "jimp": "^0.16.1",
+    "mongoose": "^5.11.15",
+    "telegraf": "^3.38.0",
+    "telegraf-i18n": "^6.6.0",
+    "telegraf-ratelimit": "^2.0.0"
+  }
+}

@@ -1,0 +1,137 @@
+language: 🇬🇧 English
+
+service:
+  greeting: |
+    Hello, ${name}!
+
+    This bot generates random animal names and provides a cute illustration of it as .png file. Try yourself, tap on the «New Animal» button below.
+  new_animal_message: What have we here? This is *${animal_name}*!
+  change_language: "Choose interface language:"
+  language_changed: You successfully changed interface language!
+
+button:
+  new_animal: New Animal
+  change_lang: Change Language
+
+animal:
+  ant: ant
+  antelope: antelope
+  bass: bass
+  bat: bat
+  bear: bear
+  beaver: beaver
+  bee: bee
+  beetle: beetle
+  boar: boar
+  bull: bull
+  butterfly: butterfly
+  camel: camel
+  cat: cat
+  chameleon: chameleon
+  chicken: chicken
+  clam: clam
+  cobra: cobra
+  cock: cock
+  cockroach: cockroach
+  cow: cow
+  crab: crab
+  croc: croc
+  crow: crow
+  deer: deer
+  dodo: dodo
+  dog: dog
+  dolphin: dolphin
+  dragon: dragon
+  duck: duck
+  eagle: eagle
+  elk: elk
+  falcon: falcon
+  fish: fish
+  flamingo: flamingo
+  fly: fly
+  fox: fox
+  frog: frog
+  gecko: gecko
+  giraffe: giraffe
+  gnat: gnat
+  gnu: gnu
+  goat: goat
+  goose: goose
+  gopher: gopher
+  gorilla: gorilla
+  griffin: griffin
+  gull: gull
+  hamster: hamster
+  hare: hare
+  hawk: hawk
+  hedgehog: hedgehog
+  heron: heron
+  horse: horse
+  hyena: hyena
+  ibex: ibex
+  jackal: jackal
+  jaguar: jaguar
+  kangaroo: kangaroo
+  kitten: kitten
+  kiwi: kiwi
+  ladybird: ladybird
+  lemur: lemur
+  leopard: leopard
+  lion: lion
+  lizard: lizard
+  llama: llama
+  lynx: lynx
+  mammoth: mammoth
+  mantis: mantis
+  meerkat: meerkat
+  mink: mink
+  monkey: monkey
+  moth: moth
+  mule: mule
+  otter: otter
+  owl: owl
+  panda: panda
+  parrot: parrot
+  peacock: peacock
+  penguin: penguin
+  phoenix: phoenix
+  pigeon: pigeon
+  piranha: piranha
+  pony: pony
+  puffin: puffin
+  pug: pug
+  puma: puma
+  python: python
+  quokka: quokka
+  rabbit: rabbit
+  raccoon: raccoon
+  rat: rat
+  raven: raven
+  rhino: rhino
+  scorpion: scorpion
+  seal: seal
+  shark: shark
+  sheep: sheep
+  shrimp: shrimp
+  skunk: skunk
+  sloth: sloth
+  snail: snail
+  spider: spider
+  squid: squid
+  squirrel: squirrel
+  starfish: starfish
+  swallow: swallow
+  swan: swan
+  tapir: tapir
+  tiger: tiger
+  toad: toad
+  turkey: turkey
+  turtle: turtle
+  unicorn: unicorn
+  walrus: walrus
+  wasp: wasp
+  whale: whale
+  wolf: wolf
+  wombat: wombat
+  yak: yak
+  zebra: zebra
