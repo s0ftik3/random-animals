@@ -6,12 +6,10 @@ module.exports = async (animal) => {
     const i = Math.floor(Math.random() * colors.length);
 
     const backgroundPath = `./src/assets/backgrounds/${colors[i]}.png`;
-    const animalPath = `./src/assets/animals/${animal}.png`;
+    const animalPath = `./src/assets/animals/${animal}.svg`;
 
-    const metadata = await sharp(animalPath).metadata();
-
-    const animalResized = await sharp(animalPath)
-        .resize({ width: (metadata.height - metadata.width >= 900) ? 500 : 700 })
+    const animalResized = await sharp(animalPath, { density: 450 })
+        .resize({ width: 700 })
         .toBuffer()
         .then(data => data);
 
