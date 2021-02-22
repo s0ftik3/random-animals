@@ -1,4 +1,4 @@
-# Cat Capture Bot
+# Random Animals Bot
 [![release](https://img.shields.io/badge/release-v1.2.0-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/random-animals)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/random-animals)]()
