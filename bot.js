@@ -24,7 +24,7 @@ const {
 const limitConfig = {
     window: 2000,
     limit: 1,
-    onLimitExceeded: ctx => ctx.reply(i18n.t(ctx.session.user.language || 'en', 'service.limit_exceeded'))
+    onLimitExceeded: ctx => ctx.reply(i18n.t((ctx.session.user === undefined) ? 'en' : ctx.session.user.language, 'service.limit_exceeded'))
 };
 
 bot.use(i18n.middleware());
