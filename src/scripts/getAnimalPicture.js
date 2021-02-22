@@ -14,9 +14,9 @@ module.exports = async (animal) => {
         .then(data => data);
 
     const result = await sharp(backgroundPath)
-       .composite([{ input: animalResized, gravity: 'centre' }])
-       .toBuffer()
-       .then(data => data);
+        .composite([{ input: animalResized, gravity: 'centre' }])
+        .toBuffer()
+        .then(data => data);
 
     return {
         image: result,
