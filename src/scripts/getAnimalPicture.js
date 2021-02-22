@@ -9,7 +9,7 @@ module.exports = async (animal) => {
     const animalPath = `./src/assets/animals/${animal}.svg`;
 
     const animalResized = await sharp(animalPath, { density: 450 })
-        .resize({ width: 700 })
+        .resize({ width: 800 })
         .toBuffer()
         .then(data => data);
 
