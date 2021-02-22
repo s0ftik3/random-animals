@@ -8,6 +8,7 @@ service:
   new_animal_message: What have we here? This is *${animal_name}*!
   change_language: "Choose interface language:"
   language_changed: You successfully changed interface language!
+  limit_exceeded: 👮🏻 Don't be in hurry!
 
 button:
   new_animal: New Animal

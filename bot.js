@@ -23,7 +23,8 @@ const {
 
 const limitConfig = {
     window: 2000,
-    limit: 1
+    limit: 1,
+    onLimitExceeded: ctx => ctx.reply(i18n.t('service.limit_exceeded'))
 };
 
 bot.use(i18n.middleware());
@@ -35,6 +36,8 @@ bot.hears(['New Animal', 'Новое животное'], handleNew());
 bot.hears(['Change Language', 'Сменить язык'], handleLanguage());
 bot.command(['lang', 'language'], handleLanguage());
 bot.action(/setLang:\w+/, handleLanguage());
+
+bot.on('callback_query', ctx => ctx.answerCbQuery());
 
 bot.launch().then(() => {
     console.log('The bot has been started.');
