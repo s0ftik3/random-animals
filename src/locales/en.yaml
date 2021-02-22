@@ -2,12 +2,12 @@ language: 🇬🇧 English
 
 service:
   greeting: |
-    Hello, ${name}!
+    🖖 Hello, ${name}!
 
-    This bot generates random animal names and provides a cute illustration of it as .png file. Try yourself, tap on the «New Animal» button below.
+    ℹ️ This bot generates random animal names and provides a cute illustration of it as .png file. Try yourself, tap on the «New Animal» button below.
   new_animal_message: What have we here? This is *${animal_name}*!
-  change_language: "Choose interface language:"
-  language_changed: You successfully changed interface language!
+  change_language: "ℹ️ Choose interface language:"
+  language_changed: ✅ You successfully changed interface language!
   limit_exceeded: 👮🏻 Don't be in hurry!
 
 button:
