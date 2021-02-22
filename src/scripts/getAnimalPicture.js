@@ -1,24 +1,16 @@
 const Jimp = require('jimp');
+const fs = require('fs');
 const saveImageRatio = require('./saveImageRatio');
 
 module.exports = async (ctx, animal) => {
-    const name = animal;
-    let colors = require('../assets/colors.json');
+    const colors = require('../assets/colors.json');
 
     const i = Math.floor(Math.random() * colors.length);
 
-    if (ctx.session.requests === 20) colors[i] = 'black';
-    if (ctx.session.requests === 40) colors[i] = 'black';
-    if (ctx.session.requests === 60) colors[i] = 'black';
-    if (ctx.session.requests === 80) colors[i] = 'black';
-    if (ctx.session.requests >= 100) colors = [...colors, 'black'];
-
     const backgroundPath = `./src/assets/backgrounds/${colors[i]}.png`;
-    const animalPath = `./src/assets/animals/${name}.png`;
+    const animalPath = `./src/assets/animals/${animal}.png`;
 
-    const fs = require('fs');
-    const inputBuffer = fs.readFileSync(animalPath);
-    const imageFile = await Jimp.read(inputBuffer);
+    const imageFile = await Jimp.read(animalPath);
 
     let newWidth = 700; // Default value.
     if (imageFile.bitmap.height - imageFile.bitmap.width >= 1000) newWidth = 400; // If image proportions are too different.
