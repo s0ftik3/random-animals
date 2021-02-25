@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: 'en'
     },
+    silent: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
     timestamp: {
         type: Date,
         required: false,

@@ -42,6 +42,7 @@ module.exports = () => async (ctx) => {
             ctx.reply(ctx.i18n.t('service.language_changed'),
                 Markup.keyboard([
                     [ctx.i18n.t('button.new_animal')],
+                    [ctx.i18n.t('button.silent_mode', { status: (user.silent) ? '✅' : ''})],
                     [ctx.i18n.t('button.change_lang')]
                 ])
                 .resize()

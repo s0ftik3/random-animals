@@ -18,7 +18,8 @@ const connect = require('./src/database/connect');
 const {
     handleStart,
     handleNew,
-    handleLanguage
+    handleLanguage,
+    handleSilent
 } = require('./src/handlers');
 
 const limitConfig = {
@@ -34,6 +35,7 @@ bot.use(rateLimit(limitConfig))
 bot.start(handleStart());
 bot.hears(['New Animal', 'Новое животное'], handleNew());
 bot.hears(['Change Language', 'Сменить язык'], handleLanguage());
+bot.hears(['Silent Mode', 'Тихий режим', 'Silent Mode ✅', 'Тихий режим ✅'], handleSilent());
 bot.command(['lang', 'language'], handleLanguage());
 bot.action(/setLang:\w+/, handleLanguage());
 

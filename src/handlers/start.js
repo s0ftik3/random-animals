@@ -20,6 +20,7 @@ module.exports = () => async (ctx) => {
                 ctx.reply(ctx.i18n.t('service.greeting', { name: ctx.from.first_name }), 
                     Markup.keyboard([
                         [ctx.i18n.t('button.new_animal')],
+                        [ctx.i18n.t('button.silent_mode', { status: ''})],
                         [ctx.i18n.t('button.change_lang')]
                     ])
                     .resize()
@@ -32,6 +33,7 @@ module.exports = () => async (ctx) => {
             ctx.reply(ctx.i18n.t('service.greeting', { name: user.firstName }),
                 Markup.keyboard([
                     [ctx.i18n.t('button.new_animal')],
+                    [ctx.i18n.t('button.silent_mode', { status: (user.silent) ? '✅' : ''})],
                     [ctx.i18n.t('button.change_lang')]
                 ])
                 .resize()
