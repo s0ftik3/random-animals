@@ -12,15 +12,26 @@ module.exports = async (animal) => {
 
     const i = Math.floor(Math.random() * colors.length);
 
-    const backgroundPath = `./src/assets/backgrounds/${colors[i]}.png`;
     const animalPath = Buffer.from(animals.find(e => e.name === animal).data);
+    
+    const background = await sharp({
+            create: {
+                width: 1500,
+                height: 1500,
+                channels: 3,
+                background: colors[i]
+            }
+        })
+        .png()
+        .toBuffer()
+        .then(data => data);
 
     const animalResized = await sharp(animalPath, { density: 450 })
         .resize({ width: 800 })
         .toBuffer()
         .then(data => data);
 
-    const result = await sharp(backgroundPath)
+    const result = await sharp(background)
         .composite([{ input: animalResized, gravity: 'centre' }])
         .toBuffer()
         .then(data => data);
