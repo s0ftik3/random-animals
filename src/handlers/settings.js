@@ -13,6 +13,8 @@ module.exports = () => async (ctx) => {
                     [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/id160`)]
                 ])
             });
+
+            ctx.answerCbQuery();
         } else { 
             ctx.reply(ctx.i18n.t('service.settings'), {
                 reply_markup: Markup.inlineKeyboard([

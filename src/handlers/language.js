@@ -53,6 +53,8 @@ module.exports = () => async (ctx) => {
             ctx.editMessageText(ctx.i18n.t('service.change_language'), {
                 reply_markup: ready_keyboard
             });
+
+            ctx.answerCbQuery();
         }
     } catch (err) {
         console.error(err);
