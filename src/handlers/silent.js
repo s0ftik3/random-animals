@@ -11,25 +11,23 @@ module.exports = () => async (ctx) => {
         ctx.session.user.silent = (user.silent) ? false : true;
 
         if (!user.silent) {
-            ctx.reply(ctx.i18n.t('service.silent_off'), 
-                Markup.keyboard([
-                    [ctx.i18n.t('button.new_animal')],
-                    [ctx.i18n.t('button.silent_mode', { status: '' })],
-                    [ctx.i18n.t('button.change_lang')]
+            ctx.editMessageText(ctx.i18n.t('service.settings'), {
+                reply_markup: Markup.inlineKeyboard([
+                    [Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`), Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: '' }), `silent`)],
+                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/id160`)]
                 ])
-                .resize()
-                .extra()
-            )
+            });
+
+            ctx.answerCbQuery(ctx.i18n.t('service.silent_off'));
         } else {
-            ctx.reply(ctx.i18n.t('service.silent_on'), 
-                Markup.keyboard([
-                    [ctx.i18n.t('button.new_animal')],
-                    [ctx.i18n.t('button.silent_mode', { status: '✅' })],
-                    [ctx.i18n.t('button.change_lang')]
+            ctx.editMessageText(ctx.i18n.t('service.settings'), {
+                reply_markup: Markup.inlineKeyboard([
+                    [Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`), Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: '✅' }), `silent`)],
+                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/id160`)]
                 ])
-                .resize()
-                .extra()
-            )
+            });
+
+            ctx.answerCbQuery(ctx.i18n.t('service.silent_on'));
         }
     } catch (err) {
         console.error(err);

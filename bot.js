@@ -19,11 +19,14 @@ const {
     handleStart,
     handleNew,
     handleLanguage,
-    handleSilent
+    handleSilent,
+    handleReset,
+    handleSettings,
+    handleUpdateKeyboard
 } = require('./src/handlers');
 
 const limitConfig = {
-    window: 2000,
+    window: config.timeout,
     limit: 1,
     onLimitExceeded: ctx => ctx.reply(i18n.t((ctx.session.user === undefined) ? 'en' : ctx.session.user.language, 'service.limit_exceeded'))
 };
@@ -34,10 +37,14 @@ bot.use(rateLimit(limitConfig))
 
 bot.start(handleStart());
 bot.hears(['New Animal', 'Новое животное'], handleNew());
-bot.hears(['Change Language', 'Сменить язык'], handleLanguage());
-bot.hears(['Silent Mode', 'Тихий режим', 'Silent Mode ✅', 'Тихий режим ✅'], handleSilent());
-bot.command(['lang', 'language'], handleLanguage());
+bot.hears(['Settings', 'Настройки'], handleSettings());
+bot.action('language', handleLanguage());
+bot.action('settings', handleSettings());
+bot.action('silent', handleSilent());
 bot.action(/setLang:\w+/, handleLanguage());
+
+bot.command('reset', handleReset());
+bot.command('updateKeyboard', handleUpdateKeyboard());
 
 bot.on('callback_query', ctx => ctx.answerCbQuery());
 

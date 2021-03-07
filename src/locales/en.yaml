@@ -10,13 +10,19 @@ service:
   language_changed: ✅ You successfully changed interface language!
   limit_exceeded: 👮🏻 Don't be in hurry!
   username_available: By the way, the username ${username} is available and you can take it!
-  silent_off: 🐵 You will see other messages than just a file.
+  silent_off: 🐵 You will see additional messages.
   silent_on: 🙈 You will see only file messages.
+  settings: ℹ️ You can change your user preferences here.
 
 button:
   new_animal: New Animal
   silent_mode: Silent Mode ${status}
   change_lang: Change Language
+  suggest_or_report: Suggest or Report
+  back: « Back
+  settings: Settings
+  constant_color: Constant Color
+  editor: Editor
 
 animal:
   ant: ant

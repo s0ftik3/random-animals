@@ -1,3 +1,4 @@
+const User = require('../database/models/User');
 const getRandomName = require('../scripts/getRandomName');
 const getAnimalPicture = require('../scripts/getAnimalPicture');
 const getUserSession = require('../scripts/getUserSession');
@@ -11,14 +12,16 @@ module.exports = () => async (ctx) => {
         
         const nameData = getRandomName();
         const imageData = await getAnimalPicture(nameData.animal);
-        const image = Buffer.from(imageData.image, 'base64');
     
         ctx.i18n.locale(user.language);
     
         const messageData = { 
-            source: image, 
+            source: imageData.image, 
             filename: `${nameData.name.replace(/\s/g, '-')}.png` 
         };
+
+        User.updateOne({ id: ctx.from.id }, { $set: { generated: user.generated + 1 } }, () => {});
+        ctx.session.user.generated = user.generated + 1;
 
         if (user.silent) {
             return ctx.replyWithDocument(messageData);
@@ -30,7 +33,7 @@ module.exports = () => async (ctx) => {
             }), 
             parse_mode: 'Markdown' 
         };
-    
+
         await ctx.replyWithDocument(messageData, messageExtra).then(response => ctx.session.last_message_id = response.message_id);
 
         const isAvailable = await checkUsername(nameData);

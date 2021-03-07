@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: false
     },
+    generated: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     timestamp: {
         type: Date,
         required: false,

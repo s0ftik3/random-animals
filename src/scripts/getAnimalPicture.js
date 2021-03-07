@@ -23,24 +23,21 @@ module.exports = async (animal) => {
             }
         })
         .png()
-        .toBuffer()
-        .then(data => data);
+        .toBuffer();
 
     const animalResized = await sharp(animalPath, { density: 450 })
         .resize({ width: 800 })
-        .toBuffer()
-        .then(data => data);
+        .toBuffer();
 
     const result = await sharp(background)
         .composite([{ input: animalResized, gravity: 'centre' }])
-        .toBuffer()
-        .then(data => data);
+        .toBuffer();
 
     const used = process.memoryUsage().heapUsed / 1024 / 1024;
     console.log(`Last proccess memory usage: ${Math.round(used * 100) / 100} MB. Time taken: ${new Date().getTime() - start_ts}ms`);
 
     return {
         image: result,
-        type: 'base64'
+        type: 'buffer'
     }
 }

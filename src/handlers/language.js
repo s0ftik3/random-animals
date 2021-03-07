@@ -29,8 +29,10 @@ module.exports = () => async (ctx) => {
         });
 
         const keyboard = buttons.filter(e => e.callback_data != `setLang:${ctx.session.user.language}`);
+        const ready_keyboard = Markup.inlineKeyboard(keyboard, { columns: 2 });
+        ready_keyboard.inline_keyboard.push([Markup.callbackButton(i18n.t(user.language, 'button.back'), `settings`)]);
 
-        if (ctx.updateType === 'callback_query') {
+        if (ctx.match[0].match(/setLang:(.*)/g) !== null) {
             const language = ctx.match[0].split(':')[1];
             ctx.i18n.locale(language);
     
@@ -42,15 +44,14 @@ module.exports = () => async (ctx) => {
             ctx.reply(ctx.i18n.t('service.language_changed'),
                 Markup.keyboard([
                     [ctx.i18n.t('button.new_animal')],
-                    [ctx.i18n.t('button.silent_mode', { status: (user.silent) ? '✅' : ''})],
-                    [ctx.i18n.t('button.change_lang')]
+                    [ctx.i18n.t('button.settings')]
                 ])
                 .resize()
                 .extra()
             );
         } else {
-            ctx.reply(ctx.i18n.t('service.change_language'), {
-                reply_markup: Markup.inlineKeyboard(keyboard, { columns: 2 })
+            ctx.editMessageText(ctx.i18n.t('service.change_language'), {
+                reply_markup: ready_keyboard
             });
         }
     } catch (err) {
