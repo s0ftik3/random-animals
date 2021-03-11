@@ -49,6 +49,7 @@ module.exports = () => async (ctx) => {
             
             default:
                 ctx.reply(ctx.i18n.t('error.common'));
+                console.log(user);
                 break;
         }
     } catch (err) {
