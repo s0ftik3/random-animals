@@ -16,7 +16,7 @@ module.exports = () => async (ctx) => {
             };
 
             recordUser(data).then(() => {
-                ctx.session.user = data;
+                ctx.session.user = { ...data, silent: false };
                 ctx.i18n.locale(ctx.session.user.language);
                 ctx.reply(ctx.i18n.t('service.greeting', { name: ctx.from.first_name }), 
                     Markup.keyboard([

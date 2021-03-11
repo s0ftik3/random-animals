@@ -22,11 +22,6 @@ module.exports = () => async (ctx) => {
         User.updateOne({ id: ctx.from.id }, { $set: { generated: user.generated + 1 } }, () => {});
         ctx.session.user.generated = user.generated + 1;
 
-        // Kludge yeah, I'm too lazy.
-        if (user.silent === undefined) {
-            user.silent = false;
-        };
-
         switch (user.silent) {
             case true:
                 ctx.replyWithDocument(messageData);
