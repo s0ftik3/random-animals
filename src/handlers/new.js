@@ -3,6 +3,7 @@ const getRandomName = require('../scripts/getRandomName');
 const getAnimalPicture = require('../scripts/getAnimalPicture');
 const getUserSession = require('../scripts/getUserSession');
 const checkUsername = require('../scripts/checkUsername');
+const replyWithError = require('../scripts/replyWithError');
 
 module.exports = () => async (ctx) => {
     try {
@@ -48,8 +49,7 @@ module.exports = () => async (ctx) => {
                 break;
             
             default:
-                ctx.reply(ctx.i18n.t('error.common'));
-                console.log(user);
+                replyWithError(ctx, 0);
                 break;
         }
     } catch (err) {

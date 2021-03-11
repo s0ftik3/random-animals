@@ -18,7 +18,8 @@ const {
     handleSilent,
     handleReset,
     handleSettings,
-    handleCallback
+    handleCallback,
+    handleJson
 } = require('./src/handlers');
 
 bot.use(i18n.middleware());
@@ -33,6 +34,7 @@ bot.action('settings', handleSettings());
 bot.action('silent', handleSilent());
 bot.action(/setLang:\w+/, handleLanguage());
 bot.command('reset', handleReset());
+bot.command('json', handleJson());
 bot.on('callback_query', handleCallback());
 
 bot.launch().then(() => {
