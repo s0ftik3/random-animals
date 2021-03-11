@@ -1,6 +1,7 @@
 const User = require('../database/models/User');
 const Markup = require('telegraf/markup');
 const getUserSession = require('../scripts/getUserSession');
+const addBackButton = require('../scripts/addBackButton');
 const fs = require('fs');
 const path = require('path');
 const TelegrafI18n = require('telegraf-i18n');
@@ -16,21 +17,16 @@ module.exports = () => async (ctx) => {
         ctx.i18n.locale(user.language);
 
         const buttons = [];
-
-        const locales_folder = fs.readdirSync('./src/locales/');
-
-        locales_folder.forEach(file => {
-
+        const localesFolder = fs.readdirSync('./src/locales/');
+        localesFolder.forEach(file => {
             const localization = file.split('.')[0];
             buttons.push(
                 Markup.callbackButton(i18n.t(localization, 'language'), `setLang:${localization}`)
-            );
-                    
+            );  
         });
 
         const keyboard = buttons.filter(e => e.callback_data != `setLang:${ctx.session.user.language}`);
-        const ready_keyboard = Markup.inlineKeyboard(keyboard, { columns: 2 });
-        ready_keyboard.inline_keyboard.push([Markup.callbackButton(i18n.t(user.language, 'button.back'), `settings`)]);
+        const finalKeyboard = addBackButton(Markup.inlineKeyboard(keyboard, { columns: 2 }), user.language);
 
         if (ctx.match[0].match(/setLang:(.*)/g) !== null) {
             const language = ctx.match[0].split(':')[1];
@@ -51,7 +47,7 @@ module.exports = () => async (ctx) => {
             );
         } else {
             ctx.editMessageText(ctx.i18n.t('service.change_language'), {
-                reply_markup: ready_keyboard
+                reply_markup: finalKeyboard
             });
 
             ctx.answerCbQuery();

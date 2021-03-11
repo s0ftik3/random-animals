@@ -1,3 +1,5 @@
+"use strict"
+
 const getUser = require('../database/getUser');
 
 module.exports = async (ctx) => {

@@ -1,5 +1,5 @@
 # Random Animals Bot
-[![release](https://img.shields.io/badge/release-v1.5.1-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v1.6.0-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/random-animals)]()
 [![size](https://img.shields.io/github/languages/code-size/s0ftik3/random-animals)]()
 
@@ -9,7 +9,7 @@ Telegram description: This bot generates random animal names and provides a pict
 On such platforms as bugs.telegram.org or contest.com you can find users with hilarious names and cute profile pictures of some animals. Those things are generated randomly. I found it interesting to create a generator of these kind of names and pictures.
 
 ## In progress
-<img src="https://i.ibb.co/KGCk4HC/photo-2021-02-23-01-17-05.jpg" width="50%" heigh="50%">
+![preview](https://i.ibb.co/HdZRwdh/IMG-0129.jpg)
 
 ## Creating your bot
 1) Create your own bot using [Bot Father](https://t.me/BotFather) and copy your brand-new bot's token.

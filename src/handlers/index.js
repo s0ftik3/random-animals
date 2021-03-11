@@ -5,5 +5,5 @@ module.exports = {
     handleSilent: require('./silent'),
     handleReset: require('./admin/reset'),
     handleSettings: require('./settings'),
-    handleUpdateKeyboard: require('./admin/updateKeyboard')
+    handleCallback: require('./callback')
 }
