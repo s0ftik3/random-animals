@@ -12,4 +12,4 @@ module.exports = () => async (ctx) => {
     } catch (err) {
         console.error(err);
     }
-}
+};

@@ -7,4 +7,4 @@ module.exports = (width, height, newWidth) => {
     const rounded = Math.round((newHeight + Number.EPSILON) * 100) / 100;
 
     return rounded;
-}
+};

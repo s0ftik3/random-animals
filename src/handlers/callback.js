@@ -4,4 +4,4 @@ module.exports = () => (ctx) => {
     } catch (err) {
         console.error(err);
     }
-}
+};

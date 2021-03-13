@@ -8,15 +8,15 @@ const replyWithError = require('../scripts/replyWithError');
 module.exports = () => async (ctx) => {
     try {
         ctx.replyWithChatAction('upload_document');
-        
-        const user = await getUserSession(ctx).then(response => response);
+
+        const user = await getUserSession(ctx);
         ctx.i18n.locale(user.language);
 
         const nameData = getRandomName();
-        const imageData = await getAnimalPicture(nameData.animal);
-        const messageData = { 
-            source: imageData.image, 
-            filename: `${nameData.name.replace(/\s/g, '-')}.png` 
+        const imageData = await getAnimalPicture(nameData.animal, ctx.from.id);
+        const messageData = {
+            source: imageData.image,
+            filename: `${nameData.name.replace(/\s/g, '-')}.png`,
         };
 
         User.updateOne({ id: ctx.from.id }, { $set: { generated: user.generated + 1 } }, () => {});
@@ -26,28 +26,31 @@ module.exports = () => async (ctx) => {
             case true:
                 ctx.replyWithDocument(messageData);
                 break;
-            
+
             case false:
                 const messageExtra = {
-                    caption: ctx.i18n.t('service.new_animal_message', { 
-                        animal_name: nameData.name 
-                    }), 
-                    parse_mode: 'Markdown' 
+                    caption: ctx.i18n.t('service.new_animal_message', {
+                        animal_name: nameData.name,
+                    }),
+                    parse_mode: 'Markdown',
                 };
 
-                await ctx.replyWithDocument(messageData, messageExtra).then(response => ctx.session.last_message_id = response.message_id);
+                await ctx.replyWithDocument(messageData, messageExtra).then((response) => (ctx.session.last_message_id = response.message_id));
 
                 const isAvailable = await checkUsername(nameData);
 
                 if (isAvailable) {
-                    ctx.reply(ctx.i18n.t('service.username_available', { 
-                        username: `@${nameData.name.replace(/\s/g, '')}` 
-                    }), { 
-                        reply_to_message_id: ctx.session.last_message_id 
-                    });
+                    ctx.reply(
+                        ctx.i18n.t('service.username_available', {
+                            username: `@${nameData.name.replace(/\s/g, '')}`,
+                        }),
+                        {
+                            reply_to_message_id: ctx.session.last_message_id,
+                        }
+                    );
                 }
                 break;
-            
+
             default:
                 replyWithError(ctx, 0);
                 break;
@@ -55,4 +58,4 @@ module.exports = () => async (ctx) => {
     } catch (err) {
         console.error(err);
     }
-}
+};

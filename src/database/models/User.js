@@ -19,8 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     language: {
         type: String,
-        required: false,
-        default: 'en'
+        required: true
     },
     silent: {
         type: Boolean,

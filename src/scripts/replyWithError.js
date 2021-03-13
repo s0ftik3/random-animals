@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 module.exports = (ctx, code) => {
     try {
@@ -8,11 +8,14 @@ module.exports = (ctx, code) => {
                 console.error({
                     code: 0,
                     type: 'error',
-                    message: `User ${ctx.from.id} isn't recorded in the database or there are some incorrect lines.`
+                    message: `User ${ctx.from.id} isn't recorded in the database or there are some incorrect lines.`,
                 });
                 break;
             case 1:
-                ctx.reply(ctx.i18n.t('error.limit_exceeded'));
+                ctx.i18n.locale(ctx.session.user.language || 'en');
+                const a = () => ctx.answerCbQuery(ctx.i18n.t('error.limit_exceeded'), true);
+                const b = () => ctx.reply(ctx.i18n.t('error.limit_exceeded'));
+                (ctx.updateType === 'callback_query') ? a() : b();
                 break;
             case 2:
                 break;
@@ -21,11 +24,11 @@ module.exports = (ctx, code) => {
                 console.error({
                     code: 'default',
                     type: 'error',
-                    message: `Something happed with the ${ctx.from.id} user.`
+                    message: `Something happed with the ${ctx.from.id} user.`,
                 });
                 break;
         }
     } catch (err) {
         console.error(err);
     }
-}
+};
