@@ -1,0 +1,28 @@
+language: 🇹🇷 Turkish
+
+service:
+  greeting: |
+    🖖 Merhaba, ${name}!
+
+    ℹ️ Bu bot, «SIFAT + HAYVAN İSMİ» biçiminde hayvan isimleri üretir ve sevimli bir illüstrasyon verir. Kendiniz deneyin, aşağıdaki «Yeni Hayvan» butonuna dokunun.
+  new_animal_message: Burada neyimiz var? Bu *${animal_name}*!
+  change_language: "ℹ️ Arayüz dilini değiştirin:"
+  language_changed: ${language} Arayüz dilini başarıyla değiştirdiniz!
+  username_available: Bu arada, ${username} kullanıcı adı kullanılabilir ve alabilirsiniz!
+  silent_off: 🐵 Ek mesajları göreceksiniz.
+  silent_on: 🙈 Sadece dosya mesajlarını göreceksiniz.
+  settings: ℹ️ Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
+
+error:
+  common: Bir şeyler ters gitti. Lütfen tekrar deneyin ya da @id160'a ulaşın.
+  limit_exceeded: 👮🏻 Acele etmeyin!
+
+button:
+  new_animal: Yeni Hayvan
+  silent_mode: Sessiz Mod ${status}
+  change_lang: Dili Değiştir
+  suggest_or_report: Öner ya da Bildir
+  back: « Geri
+  settings: Ayarlar
+  constant_color: Sabit Renk
+  editor: Düzenleyici
