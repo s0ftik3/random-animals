@@ -36,9 +36,7 @@ module.exports = () => async (ctx) => {
             ctx.deleteMessage();
 
             ctx.reply(
-                ctx.i18n.t('service.language_changed', {
-                    language: (ctx.session.user.language === 'en') ? '🇬🇧' : '🇷🇺'
-                }),
+                ctx.i18n.t('service.language_changed'),
                 Markup.keyboard([[ctx.i18n.t('button.new_animal')], [ctx.i18n.t('button.settings')]])
                     .resize()
                     .extra()

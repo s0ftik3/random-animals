@@ -1,5 +1,6 @@
 const Telegraf = require('telegraf');
-const bot = new Telegraf(require('./config').token);
+const config = require('./config');
+const bot = new Telegraf(config.token);
 const rateLimit = require('telegraf-ratelimit')
 const session = require('telegraf/session');
 const path = require('path');
@@ -27,8 +28,8 @@ bot.use(session());
 bot.use(rateLimit(require('./config').limit));
 
 bot.start(handleStart());
-bot.hears(['New Animal', 'Новое животное'], handleNew());
-bot.hears(['Settings', 'Настройки'], handleSettings());
+bot.hears(config.button.new_animal, handleNew());
+bot.hears(config.button.settings, handleSettings());
 bot.action('language', handleLanguage());
 bot.action('settings', handleSettings());
 bot.action('silent', handleSilent());

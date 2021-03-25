@@ -6,5 +6,5 @@ module.exports = {
     handleReset: require('./admin/reset'),
     handleSettings: require('./settings'),
     handleCallback: require('./callback'),
-    handleJson: require('./json'),
+    handleJson: require('./json')
 };

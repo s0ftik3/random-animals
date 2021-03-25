@@ -7,7 +7,7 @@ service:
     ℹ️ This bot generates random names in the form of «ADJECTIVE + ANIMAL NAME» and provides a cute illustration of it. Try yourself, tap on the «New Animal» button below.
   new_animal_message: What have we here? This is *${animal_name}*!
   change_language: "ℹ️ Choose interface language:"
-  language_changed: ${language} You successfully changed interface language!
+  language_changed: 🇬🇧 You successfully changed interface language!
   username_available: By the way, the username ${username} is available and you can take it!
   silent_off: 🐵 You will see additional messages.
   silent_on: 🙈 You will see only file messages.
