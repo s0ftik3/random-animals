@@ -18,7 +18,7 @@ module.exports = () => async (ctx) => {
             recordUser(data).then(() => {
                 ctx.session.user = { ...data, silent: false };
                 ctx.i18n.locale(ctx.session.user.language);
-                ctx.reply(
+                ctx.replyWithHTML(
                     ctx.i18n.t('service.greeting', { name: ctx.from.first_name }),
                     Markup.keyboard([[ctx.i18n.t('button.new_animal')], [ctx.i18n.t('button.settings')]])
                         .resize()
@@ -28,7 +28,7 @@ module.exports = () => async (ctx) => {
         } else {
             ctx.i18n.locale(user.language);
 
-            ctx.reply(
+            ctx.replyWithHTML(
                 ctx.i18n.t('service.greeting', { name: user.firstName }),
                 Markup.keyboard([[ctx.i18n.t('button.new_animal')], [ctx.i18n.t('button.settings')]])
                     .resize()

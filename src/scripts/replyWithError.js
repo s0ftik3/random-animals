@@ -17,14 +17,12 @@ module.exports = (ctx, code) => {
                 const b = () => ctx.reply(ctx.i18n.t('error.limit_exceeded'));
                 (ctx.updateType === 'callback_query') ? a() : b();
                 break;
-            case 2:
-                break;
             default:
                 ctx.reply(ctx.i18n.t('error.common'));
                 console.error({
                     code: 'default',
                     type: 'error',
-                    message: `Something happed with the ${ctx.from.id} user.`,
+                    message: `Something happed with ${ctx.from.id} user.`,
                 });
                 break;
         }

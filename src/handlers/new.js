@@ -32,7 +32,7 @@ module.exports = () => async (ctx) => {
                     caption: ctx.i18n.t('service.new_animal_message', {
                         animal_name: nameData.name,
                     }),
-                    parse_mode: 'Markdown',
+                    parse_mode: 'HTML'
                 };
 
                 await ctx.replyWithDocument(messageData, messageExtra).then((response) => (ctx.session.last_message_id = response.message_id));

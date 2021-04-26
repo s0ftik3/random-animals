@@ -13,7 +13,7 @@ module.exports = () => async (ctx) => {
                         Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
                         Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? '✅' : '' }), `silent`),
                     ],
-                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/id160`)],
+                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/vychs`)],
                 ]),
             });
 
@@ -25,7 +25,7 @@ module.exports = () => async (ctx) => {
                         Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
                         Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? '✅' : '' }), `silent`),
                     ],
-                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/id160`)],
+                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/vychs`)],
                 ]),
             });
         }

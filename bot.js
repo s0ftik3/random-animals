@@ -34,6 +34,7 @@ bot.action('language', handleLanguage());
 bot.action('settings', handleSettings());
 bot.action('silent', handleSilent());
 bot.action(/setLang:\w+/, handleLanguage());
+bot.command('settings', handleSettings());
 bot.command('reset', handleReset());
 bot.command('json', handleJson());
 bot.on('callback_query', handleCallback());

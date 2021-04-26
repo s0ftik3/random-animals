@@ -1,11 +1,11 @@
-language: 🇹🇷 Turkish
+language: 🇹🇷 Türkçe
 
 service:
   greeting: |
-    🖖 Merhaba, ${name}!
+    🖖 Merhaba, <b>${name}</b>!
 
-    ℹ️ Bu bot, «SIFAT + HAYVAN İSMİ» biçiminde hayvan isimleri üretir ve sevimli bir illüstrasyon verir. Kendiniz deneyin, aşağıdaki «Yeni Hayvan» butonuna dokunun.
-  new_animal_message: Burada neyimiz var? Bu *${animal_name}*!
+    ℹ️ Bu bot, «SIFAT + HAYVAN İSMİ» biçiminde hayvan isimleri üretir ve sevimli bir illüstrasyon verir. Kendiniz deneyin, aşağıdaki <b>«Yeni Hayvan»</b> butonuna dokunun.
+  new_animal_message: Burada neyimiz var? Bu <b>${animal_name}</b>!
   change_language: "ℹ️ Arayüz dilini değiştirin:"
   language_changed: 🇹🇷 Arayüz dilini başarıyla değiştirdiniz!
   username_available: Bu arada, ${username} kullanıcı adı kullanılabilir ve alabilirsiniz!
@@ -14,7 +14,7 @@ service:
   settings: ℹ️ Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
 
 error:
-  common: Bir şeyler ters gitti. Lütfen tekrar deneyin ya da @id160'a ulaşın.
+  common: Bir şeyler ters gitti. Lütfen tekrar deneyin ya da @vychs'a ulaşın.
   limit_exceeded: 👮🏻 Acele etmeyin!
 
 button:

@@ -2,10 +2,10 @@ language: 🇬🇧 English
 
 service:
   greeting: |
-    🖖 Hello, ${name}!
+    🖖 Welcome, <b>${name}</b>!
 
-    ℹ️ This bot generates random names in the form of «ADJECTIVE + ANIMAL NAME» and provides a cute illustration of it. Try yourself, tap on the «New Animal» button below.
-  new_animal_message: What have we here? This is *${animal_name}*!
+    ℹ️ This bot generates random names in the form of «ADJECTIVE + ANIMAL NAME» and provides a cute illustration of it. Try yourself, tap on the <b>«New Animal»</b> button below.
+  new_animal_message: What have we here? This is <b>${animal_name}</b>!
   change_language: "ℹ️ Choose interface language:"
   language_changed: 🇬🇧 You successfully changed interface language!
   username_available: By the way, the username ${username} is available and you can take it!
@@ -14,7 +14,7 @@ service:
   settings: ℹ️ You can change your user preferences here.
 
 error:
-  common: Something went wrong. Please try again or contact @id160.
+  common: Something went wrong. Please try again or contact @vychs.
   limit_exceeded: 👮🏻 Don't be in hurry!
 
 button:

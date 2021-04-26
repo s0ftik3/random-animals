@@ -33,7 +33,7 @@ module.exports = async (animal, id) => {
             .toBuffer();
 
         const used = process.memoryUsage().heapUsed / 1024 / 1024;
-        console.log(`[${id}] Memory used: ${Math.round(used * 100) / 100}mb — Time taken: ${new Date().getTime() - start_ts}ms.`);
+        console.log(`[${id}] ${Math.round(used * 100) / 100}mb in ${new Date().getTime() - start_ts}ms.`);
 
         return {
             image: result,
