@@ -2,7 +2,7 @@
 
 const sharp = require('sharp');
 
-module.exports = async (animal, id) => {
+module.exports = async (animal, id, color = null) => {
     try {
         const start_ts = new Date().getTime();
 
@@ -20,7 +20,7 @@ module.exports = async (animal, id) => {
                 width: 1500,
                 height: 1500,
                 channels: 3,
-                background: colors[i],
+                background: (color === null) ? colors[i] : color
             },
         })
             .png()
@@ -38,6 +38,7 @@ module.exports = async (animal, id) => {
         return {
             image: result,
             type: 'buffer',
+            color: (color === null) ? colors[i] : color
         };
     } catch (err) {
         console.error(err);

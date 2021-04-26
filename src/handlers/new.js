@@ -1,4 +1,6 @@
 const User = require('../database/models/User');
+const Markup = require('telegraf/markup');
+const colors = require('../assets/colors.json');
 const getRandomName = require('../scripts/getRandomName');
 const getAnimalPicture = require('../scripts/getAnimalPicture');
 const getUserSession = require('../scripts/getUserSession');
@@ -18,13 +20,19 @@ module.exports = () => async (ctx) => {
             source: imageData.image,
             filename: `${nameData.name.replace(/\s/g, '-')}.png`,
         };
+        const next_color = colors[colors.indexOf(imageData.color, 0) + 1];
+        const condition = (next_color === undefined) ? colors[0] : next_color;
 
         User.updateOne({ id: ctx.from.id }, { $set: { generated: user.generated + 1 } }, () => {});
         ctx.session.user.generated = user.generated + 1;
 
         switch (user.silent) {
             case true:
-                ctx.replyWithDocument(messageData);
+                ctx.replyWithDocument(messageData, {
+                    reply_markup: Markup.inlineKeyboard([
+                        [Markup.callbackButton(ctx.i18n.t('button.change_color'), `to_color:${condition}:${nameData.animal}:${nameData.name}`)]
+                    ])
+                });
                 break;
 
             case false:
@@ -32,7 +40,10 @@ module.exports = () => async (ctx) => {
                     caption: ctx.i18n.t('service.new_animal_message', {
                         animal_name: nameData.name,
                     }),
-                    parse_mode: 'HTML'
+                    parse_mode: 'HTML',
+                    reply_markup: Markup.inlineKeyboard([
+                        [Markup.callbackButton(ctx.i18n.t('button.change_color'), `to_color:${condition}:${nameData.animal}:${nameData.name}`)]
+                    ])
                 };
 
                 await ctx.replyWithDocument(messageData, messageExtra).then((response) => (ctx.session.last_message_id = response.message_id));

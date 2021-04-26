@@ -20,7 +20,8 @@ const {
     handleReset,
     handleSettings,
     handleCallback,
-    handleJson
+    handleJson,
+    handleColorChanger
 } = require('./src/handlers');
 
 bot.use(i18n.middleware());
@@ -33,7 +34,8 @@ bot.hears(config.button.settings, handleSettings());
 bot.action('language', handleLanguage());
 bot.action('settings', handleSettings());
 bot.action('silent', handleSilent());
-bot.action(/setLang:\w+/, handleLanguage());
+bot.action(/setLang:(.*)/, handleLanguage());
+bot.action(/to_color:(.*)/, handleColorChanger());
 bot.command('settings', handleSettings());
 bot.command('reset', handleReset());
 bot.command('json', handleJson());

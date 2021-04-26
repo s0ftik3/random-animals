@@ -12,6 +12,7 @@ service:
   silent_off: 🐵 You will see additional messages.
   silent_on: 🙈 You will see only file messages.
   settings: ℹ️ You can change your user preferences here.
+  updating_picture: 🕗 Updating...
 
 error:
   common: Something went wrong. Please try again or contact @vychs.
@@ -24,8 +25,7 @@ button:
   suggest_or_report: Suggest or Report
   back: « Back
   settings: Settings
-  constant_color: Constant Color
-  editor: Editor
+  change_color: Change background
 
 animal:
   ant: ant
