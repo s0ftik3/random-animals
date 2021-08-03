@@ -51,8 +51,10 @@ module.exports = () => async (ctx) => {
                 const isAvailable = await checkUsername(nameData);
 
                 if (isAvailable) {
+                    const salt = Math.floor(Math.random() * 4);
+
                     ctx.reply(
-                        ctx.i18n.t('service.username_available', {
+                        ctx.i18n.t(`service.username_available_${salt}`, {
                             username: `@${nameData.name.replace(/\s/g, '')}`,
                         }),
                         {

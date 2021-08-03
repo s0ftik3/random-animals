@@ -8,7 +8,10 @@ service:
   new_animal_message: Burada neyimiz var? Bu <b>${animal_name}</b>!
   change_language: "ℹ️ Arayüz dilini değiştirin:"
   language_changed: 🇹🇷 Arayüz dilini başarıyla değiştirdiniz!
-  username_available: Bu arada, ${username} kullanıcı adı kullanılabilir ve alabilirsiniz!
+  username_available_0: Bu arada, ${username} kullanıcı adı kullanılabilir ve alabilirsiniz!
+  username_available_1: It seems, the username ${username} is free.
+  username_available_2: You can take ${username} username as yours.
+  username_available_3: ${username} is free and you can take it.
   silent_off: 🐵 Ek mesajları göreceksiniz.
   silent_on: 🙈 Sadece dosya mesajlarını göreceksiniz.
   settings: ℹ️ Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
