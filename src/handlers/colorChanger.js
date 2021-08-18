@@ -2,6 +2,7 @@ const Markup = require('telegraf/markup');
 const colors = require('../assets/colors.json');
 const getUserSession = require('../scripts/getUserSession');
 const getAnimalPicture = require('../scripts/getAnimalPicture');
+const replyWithError = require('../scripts/replyWithError');
 const checkSubscription = require('../scripts/checkSubscription');
 
 module.exports = () => async (ctx) => {
