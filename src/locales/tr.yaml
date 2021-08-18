@@ -20,12 +20,14 @@ service:
 error:
   common: Bir şeyler ters gitti. Lütfen tekrar deneyin ya da @vychs'a ulaşın.
   limit_exceeded: 👮🏻 Acele etmeyin!
+  not_a_member: ✋ Süslü resimler oluşturmaya devam etmek için lütfen geliştiricinin kanalına abone olun. Bot ücretsizdir ve bu sizin desteğiniz :)
 
 button:
   new_animal: Yeni Hayvan
   silent_mode: Sessiz Mod ${status}
   change_lang: Dili Değiştir
   suggest_or_report: Öner ya da Bildir
+  subscribe: Abone
   back: « Geri
   settings: Ayarlar
   change_color: Change background

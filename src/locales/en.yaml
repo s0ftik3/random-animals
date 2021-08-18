@@ -20,12 +20,14 @@ service:
 error:
   common: Something went wrong. Please try again or contact @vychs.
   limit_exceeded: 👮🏻 Don't be in hurry!
+  not_a_member: ✋ Please subscibe to the developer's channel to keep generating fancy pictures. The bot is free and it's your support :)
 
 button:
   new_animal: New Animal
   silent_mode: Silent Mode ${status}
   change_lang: Change Language
   suggest_or_report: Developer's channel
+  subscribe: Subscribe
   back: « Back
   settings: Settings
   change_color: Change background

@@ -6,13 +6,17 @@ const getAnimalPicture = require('../scripts/getAnimalPicture');
 const getUserSession = require('../scripts/getUserSession');
 const checkUsername = require('../scripts/checkUsername');
 const replyWithError = require('../scripts/replyWithError');
+const checkSubscription = require('../scripts/checkSubscription');
 
 module.exports = () => async (ctx) => {
     try {
-        ctx.replyWithChatAction('upload_document');
-
         const user = await getUserSession(ctx);
         ctx.i18n.locale(user.language);
+
+        const is_member = await checkSubscription(ctx).then(response => response);
+        if (user.generated > 30 && !is_member) return replyWithError(ctx, 11);
+
+        ctx.replyWithChatAction('upload_document');
 
         const nameData = getRandomName();
         const imageData = await getAnimalPicture(nameData.animal, ctx.from.id);
