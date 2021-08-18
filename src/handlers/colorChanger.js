@@ -2,6 +2,7 @@ const Markup = require('telegraf/markup');
 const colors = require('../assets/colors.json');
 const getUserSession = require('../scripts/getUserSession');
 const getAnimalPicture = require('../scripts/getAnimalPicture');
+const checkSubscription = require('../scripts/checkSubscription');
 
 module.exports = () => async (ctx) => {
     try {
@@ -9,6 +10,9 @@ module.exports = () => async (ctx) => {
         ctx.i18n.locale(user.language);
 
         ctx.answerCbQuery(ctx.i18n.t('service.updating_picture'));
+
+        const is_member = await checkSubscription(ctx).then(response => response);
+        if (user.generated > 20 && !is_member) return replyWithError(ctx, 2);
 
         const params = ctx.match[1].split(':');
         const color = params[0];

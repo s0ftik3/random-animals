@@ -14,7 +14,7 @@ module.exports = () => async (ctx) => {
         ctx.i18n.locale(user.language);
 
         const is_member = await checkSubscription(ctx).then(response => response);
-        if (user.generated > 30 && !is_member) return replyWithError(ctx, 11);
+        if (user.generated > 20 && !is_member) return replyWithError(ctx, 2);
 
         ctx.replyWithChatAction('upload_document');
 
