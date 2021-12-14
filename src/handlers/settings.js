@@ -11,7 +11,7 @@ module.exports = () => async (ctx) => {
                 reply_markup: Markup.inlineKeyboard([
                     [
                         Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
-                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? '✅' : '' }), `silent`),
+                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? ctx.i18n.t('action.a_on') : ctx.i18n.t('action.a_off') }), `silent`),
                     ],
                     [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/softik`)],
                 ])
@@ -23,7 +23,7 @@ module.exports = () => async (ctx) => {
                 reply_markup: Markup.inlineKeyboard([
                     [
                         Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
-                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? '✅' : '' }), `silent`),
+                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: user.silent ? ctx.i18n.t('action.a_on') : ctx.i18n.t('action.a_off') }), `silent`),
                     ],
                     [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/softik`)],
                 ])

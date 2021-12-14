@@ -6,15 +6,15 @@ service:
 
     ℹ️ This bot generates random names in the form of «ADJECTIVE + ANIMAL NAME» and provides a cute illustration of it. Try yourself, tap on the <b>«New Animal»</b> button below.
   new_animal_message: What have we here? This is <b>${animal_name}</b>!
-  change_language: "ℹ️ Choose interface language:"
+  change_language: "Choose interface language:"
   language_changed: 🇬🇧 You successfully changed interface language!
   username_available_0: By the way, the username ${username} is available and you can take it!
   username_available_1: It seems, the username ${username} is free.
   username_available_2: You can take ${username} username as yours.
   username_available_3: ${username} is free and you can take it.
   silent_off: 🐵 You will see additional messages.
-  silent_on: 🙈 You will see only file messages.
-  settings: ℹ️ You can change your user preferences here.
+  silent_on: 🙈 You won't see additional messages.
+  settings: You can change the way the bot works here.
   updating_picture: 🕗 Updating...
 
 error:
@@ -24,14 +24,18 @@ error:
 
 button:
   new_animal: New Animal
-  silent_mode: Silent Mode ${status}
+  silent_mode: "Silent Mode: ${status}"
   change_lang: Change Language
   suggest_or_report: Developer's channel
   subscribe: Subscribe
-  back: « Back
+  back: ‹ Back
   settings: Settings
   change_color: Change background
 
+action:
+  a_on: "ON"
+  a_off: "OFF"
+  
 animal:
   ant: ant
   antelope: antelope

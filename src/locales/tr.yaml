@@ -6,7 +6,7 @@ service:
 
     ℹ️ Bu bot, «SIFAT + HAYVAN İSMİ» biçiminde hayvan isimleri üretir ve sevimli bir illüstrasyon verir. Kendiniz deneyin, aşağıdaki <b>«Yeni Hayvan»</b> butonuna dokunun.
   new_animal_message: Burada neyimiz var? Bu <b>${animal_name}</b>!
-  change_language: "ℹ️ Arayüz dilini değiştirin:"
+  change_language: "Arayüz dilini değiştirin:"
   language_changed: 🇹🇷 Arayüz dilini başarıyla değiştirdiniz!
   username_available_0: Bu arada, ${username} kullanıcı adı kullanılabilir ve alabilirsiniz!
   username_available_1: It seems, the username ${username} is free.
@@ -14,7 +14,7 @@ service:
   username_available_3: ${username} is free and you can take it.
   silent_off: 🐵 Ek mesajları göreceksiniz.
   silent_on: 🙈 Sadece dosya mesajlarını göreceksiniz.
-  settings: ℹ️ Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
+  settings: Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
   updating_picture: 🕗 Updating...
   
 error:
@@ -24,10 +24,14 @@ error:
 
 button:
   new_animal: Yeni Hayvan
-  silent_mode: Sessiz Mod ${status}
+  silent_mode: "Sessiz Mod: ${status}"
   change_lang: Dili Değiştir
   suggest_or_report: Öner ya da Bildir
   subscribe: Abone
-  back: « Geri
+  back: ‹ Geri
   settings: Ayarlar
   change_color: Change background
+  
+action:
+  a_on: "ON"
+  a_off: "OFF"
