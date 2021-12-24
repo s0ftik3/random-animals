@@ -2,9 +2,9 @@ language: 🇹🇷 Türkçe
 
 service:
   greeting: |
-    🖖 Merhaba, <b>${name}</b>!
+    🎅🏻 Merhaba, <b>${name}</b>!
 
-    ℹ️ Bu bot, «SIFAT + HAYVAN İSMİ» biçiminde hayvan isimleri üretir ve sevimli bir illüstrasyon verir. Kendiniz deneyin, aşağıdaki <b>«Yeni Hayvan»</b> butonuna dokunun.
+    ℹ️ Bu bot ile rastgele hayvan isimleri oluşturabilir ve bunların güzel resimlerini alabilirsiniz.
   new_animal_message: Burada neyimiz var? Bu <b>${animal_name}</b>!
   change_language: "Arayüz dilini değiştirin:"
   language_changed: 🇹🇷 Arayüz dilini başarıyla değiştirdiniz!
@@ -26,7 +26,6 @@ button:
   new_animal: Yeni Hayvan
   silent_mode: "Sessiz Mod: ${status}"
   change_lang: Dili Değiştir
-  suggest_or_report: Öner ya da Bildir
   subscribe: Abone
   back: ‹ Geri
   settings: Ayarlar

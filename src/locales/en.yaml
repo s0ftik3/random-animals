@@ -2,9 +2,9 @@ language: 🇬🇧 English
 
 service:
   greeting: |
-    🖖 Welcome, <b>${name}</b>!
+    🎅🏻 Happy Holidays, <b>${name}</b>!
 
-    ℹ️ This bot generates random names in the form of «ADJECTIVE + ANIMAL NAME» and provides a cute illustration of it. Try yourself, tap on the <b>«New Animal»</b> button below.
+    ℹ️ With this bot you can generate random animal names and get nice pictures of them.
   new_animal_message: What have we here? This is <b>${animal_name}</b>!
   change_language: "Choose interface language:"
   language_changed: 🇬🇧 You successfully changed interface language!
@@ -26,7 +26,6 @@ button:
   new_animal: New Animal
   silent_mode: "Silent Mode: ${status}"
   change_lang: Change Language
-  suggest_or_report: Developer's channel
   subscribe: Subscribe
   back: ‹ Back
   settings: Settings
