@@ -13,11 +13,8 @@ module.exports = () => async (ctx) => {
         if (!user.silent) {
             ctx.editMessageText(ctx.i18n.t('service.settings'), {
                 reply_markup: Markup.inlineKeyboard([
-                    [
-                        Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
-                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: ctx.i18n.t('action.a_off') }), `silent`),
-                    ],
-                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/softik`)],
+                    [Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`)],
+                    [Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: ctx.i18n.t('action.a_off') }), `silent`)],
                 ]),
             });
 
@@ -25,11 +22,8 @@ module.exports = () => async (ctx) => {
         } else {
             ctx.editMessageText(ctx.i18n.t('service.settings'), {
                 reply_markup: Markup.inlineKeyboard([
-                    [
-                        Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`),
-                        Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: ctx.i18n.t('action.a_on') }), `silent`),
-                    ],
-                    [Markup.urlButton(ctx.i18n.t('button.suggest_or_report'), `https://t.me/softik`)],
+                    [Markup.callbackButton(ctx.i18n.t('button.change_lang'), `language`)],
+                    [Markup.callbackButton(ctx.i18n.t('button.silent_mode', { status: ctx.i18n.t('action.a_on') }), `silent`)],
                 ]),
             });
 
