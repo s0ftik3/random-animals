@@ -1,5 +1,5 @@
 # Random Animals Bot
-[![release](https://img.shields.io/badge/release-v2.0.0-green.svg?style=flat)]()
+[![release](https://img.shields.io/badge/release-v2.0.1-green.svg?style=flat)]()
 [![license](https://img.shields.io/github/license/s0ftik3/random-animals)]()
 [![bot](https://img.shields.io/badge/Bot-Telegram-blue)](https://t.me/randanimalbot)
 

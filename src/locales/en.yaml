@@ -16,11 +16,11 @@ service:
   silent_on: 🙈 You won't see additional messages.
   newyear_on: ❄️ Now, there will be snow behind animals!
   settings: |
-    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+    For <b>${period}</b> you generated <b>${number} ${verb}</b>.
 
     🎅🏻 Santas collected: <b>${santa} / 5</b>. Generate images and collect Santas to get a unique settings option.
   settings_all_santa: |
-    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+    For <b>${period}</b> you generated <b>${number} ${verb}</b>.
 
     🎅🏻 You've collected all Santas and now New Year's mode is available for you!
   santa_caught: 🎅🏻 You've just caught Santa! Found ${santa} of 5.
