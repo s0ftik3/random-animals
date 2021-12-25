@@ -1,11 +1,11 @@
 module.exports = {
-    handleStart:            require('./start'),
-    handleNew:              require('./new'),
-    handleLanguage:         require('./language'),
-    handleSilent:           require('./silent'),
-    handleReset:            require('./admin/reset'),
-    handleSettings:         require('./settings'),
-    handleCallback:         require('./callback'),
-    handleJson:             require('./json'),
-    handleColorChanger:     require('./colorChanger')
+    handleStart: require('./start'),
+    handleGenerate: require('./generate'),
+    handleSettings: require('./settings'),
+    handleSilent: require('./silent'),
+    handleSanta: require('./santa'),
+    handeNewYear: require('./newyear'),
+    handleJson: require('./json'),
+    handleCallback: require('./callback'),
+    handleLanguage: require('./language'),
 };

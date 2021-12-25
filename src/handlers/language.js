@@ -1,7 +1,6 @@
-const User = require('../database/models/User');
+'use strict';
+
 const Markup = require('telegraf/markup');
-const getUserSession = require('../scripts/getUserSession');
-const addBackButton = require('../scripts/addBackButton');
 const fs = require('fs');
 const path = require('path');
 const TelegrafI18n = require('telegraf-i18n');
@@ -13,40 +12,53 @@ const i18n = new TelegrafI18n({
 
 module.exports = () => async (ctx) => {
     try {
-        const user = await getUserSession(ctx);
-        ctx.i18n.locale(user.language);
+        const action = ctx.match;
 
         const buttons = [];
         const localesFolder = fs.readdirSync('./src/locales/');
+
         localesFolder.forEach((file) => {
             const localization = file.split('.')[0];
-            buttons.push(Markup.callbackButton(i18n.t(localization, 'language'), `setLang:${localization}`));
+            buttons.push(
+                Markup.callbackButton(
+                    i18n.t(localization, 'language'),
+                    `language:${localization}`
+                )
+            );
         });
 
-        const keyboard = buttons.filter((e) => e.callback_data != `setLang:${ctx.session.user.language}`);
-        const finalKeyboard = addBackButton(Markup.inlineKeyboard(keyboard, { columns: 2 }), user.language);
+        buttons.push(
+            Markup.callbackButton(ctx.i18n.t('button.back'), 'settings')
+        );
 
-        if (ctx.match[0].match(/setLang:(.*)/g) !== null) {
+        const keyboard = buttons.filter(
+            (e) => e.callback_data != `language:${ctx.user.language}`
+        );
+
+        if (action === 'language') {
+            await ctx.editMessageText(ctx.i18n.t('service.change_language'), {
+                reply_markup: Markup.inlineKeyboard(keyboard, { columns: 2 }),
+            });
+        } else {
             const language = ctx.match[0].split(':')[1];
             ctx.i18n.locale(language);
 
-            await User.updateOne({ id: ctx.from.id }, { $set: { language: language } }, () => {});
-            ctx.session.user.language = language;
+            ctx.user.language = language;
+            await ctx.user.save();
 
-            ctx.deleteMessage();
+            await ctx.deleteMessage();
 
-            ctx.reply(
+            await ctx.replyWithHTML(
                 ctx.i18n.t('service.language_changed'),
-                Markup.keyboard([[ctx.i18n.t('button.new_animal')], [ctx.i18n.t('button.settings')]])
+                Markup.keyboard([
+                    [ctx.i18n.t('button.new_animal')],
+                    [ctx.i18n.t('button.settings')],
+                ])
                     .resize()
                     .extra()
             );
-        } else {
-            ctx.editMessageText(ctx.i18n.t('service.change_language'), {
-                reply_markup: finalKeyboard,
-            });
 
-            ctx.answerCbQuery();
+            await ctx.answerCbQuery();
         }
     } catch (err) {
         console.error(err);

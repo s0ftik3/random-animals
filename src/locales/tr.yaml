@@ -2,9 +2,9 @@ language: 🇹🇷 Türkçe
 
 service:
   greeting: |
-    🎅🏻 Merhaba, <b>${name}</b>!
+    🎅🏻 Merhaba, <b>${name}</b>!<a href="https://i.ibb.co/wYL9rqT/preview-snow.png">ᅠ</a>
 
-    ℹ️ Bu bot ile rastgele hayvan isimleri oluşturabilir ve bunların güzel resimlerini alabilirsiniz.
+    Bu bot ile rastgele hayvan isimleri oluşturabilir ve bunların güzel resimlerini alabilirsiniz.
   new_animal_message: Burada neyimiz var? Bu <b>${animal_name}</b>!
   change_language: "Arayüz dilini değiştirin:"
   language_changed: 🇹🇷 Arayüz dilini başarıyla değiştirdiniz!
@@ -14,23 +14,37 @@ service:
   username_available_3: ${username} is free and you can take it.
   silent_off: 🐵 Ek mesajları göreceksiniz.
   silent_on: 🙈 Sadece dosya mesajlarını göreceksiniz.
-  settings: Burada kullanıcı tercihlerinizi değiştirebilirsiniz.
-  updating_picture: 🕗 Updating...
-  
+  newyear_on: ❄️ Now, there will be snow behind animals!
+  settings: |
+    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+
+    🎅🏻 Santas collected: <b>${santa} / 5</b>. Generate images and collect Santas to get a unique settings option.
+  settings_all_santa: |
+    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+
+    🎅🏻 You've collected all Santas and now New Year's mode is available for you!
+  santa_caught: 🎅🏻 You've just caught Santa! Found ${santa} of 5.
+  last_santa_caught: 🎅🏻 You've just caught the last Santa! Check your settings, maybe something's changed...
+  not_a_member: ✋ Süslü resimler oluşturmaya devam etmek için lütfen geliştiricinin kanalına abone olun. Bot ücretsizdir ve bu sizin desteğiniz :)
+
 error:
   common: Bir şeyler ters gitti. Lütfen tekrar deneyin ya da @vychs'a ulaşın.
   limit_exceeded: 👮🏻 Acele etmeyin!
-  not_a_member: ✋ Süslü resimler oluşturmaya devam etmek için lütfen geliştiricinin kanalına abone olun. Bot ücretsizdir ve bu sizin desteğiniz :)
 
 button:
-  new_animal: Yeni Hayvan
+  new_animal: Oluşturmak
   silent_mode: "Sessiz Mod: ${status}"
+  new_year_mode: "New Year's mode: ${status}"
   change_lang: Dili Değiştir
   subscribe: Abone
   back: ‹ Geri
   settings: Ayarlar
-  change_color: Change background
+  santa: 🎅🏻 Catch Santa
   
 action:
   a_on: "ON"
   a_off: "OFF"
+
+other:
+  verb_one: photo
+  verb_more: photos

@@ -1,26 +1,17 @@
+'use strict';
+
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     id: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
-    firstName: {
-        type: String,
-        required: false
-    },
-    lastName: {
-        type: String,
-        required: false
-    },
-    username: {
-        type: String,
-        required: false
-    },
-    language: {
-        type: String,
-        required: true
-    },
+    firstName: String,
+    lastName: String,
+    username: String,
+    language: String,
     silent: {
         type: Boolean,
         required: false,
@@ -31,10 +22,15 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: 0
     },
-    channel_member: {
+    santa: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    newYear: {
         type: Boolean,
         required: false,
-        default: null
+        default: false
     },
     timestamp: {
         type: Date,

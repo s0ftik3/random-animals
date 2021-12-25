@@ -6,9 +6,9 @@ const plural = require('plural-ru');
 
 module.exports = () => async (ctx) => {
     try {
-        ctx.user.silent = ctx.user.silent ? false : true;
+        ctx.user.newYear = ctx.user.newYear ? false : true;
 
-        if (!ctx.user.silent) {
+        if (!ctx.user.newYear) {
             await ctx.editMessageText(
                 ctx.i18n.t(ctx.user.santa >= 5 ? 'service.settings_all_santa' : 'service.settings', {
                     santa: ctx.user.santa,
@@ -38,7 +38,9 @@ module.exports = () => async (ctx) => {
                         [
                             Markup.callbackButton(
                                 ctx.i18n.t('button.silent_mode', {
-                                    status: ctx.i18n.t('action.a_off'),
+                                    status: ctx.user.silent
+                                        ? ctx.i18n.t('action.a_on')
+                                        : ctx.i18n.t('action.a_off'),
                                 }),
                                 `silent`
                             ),
@@ -47,9 +49,7 @@ module.exports = () => async (ctx) => {
                             ? [
                                   Markup.callbackButton(
                                       ctx.i18n.t('button.new_year_mode', {
-                                          status: ctx.user.newYear
-                                              ? ctx.i18n.t('action.a_on')
-                                              : ctx.i18n.t('action.a_off'),
+                                          status: ctx.i18n.t('action.a_off'),
                                       }),
                                       `newYear`
                                   ),
@@ -59,7 +59,7 @@ module.exports = () => async (ctx) => {
                 }
             );
 
-            await ctx.answerCbQuery(ctx.i18n.t('service.silent_off'), true);
+            await ctx.answerCbQuery();
         } else {
             await ctx.editMessageText(
                 ctx.i18n.t(ctx.user.santa >= 5 ? 'service.settings_all_santa' : 'service.settings', {
@@ -90,7 +90,9 @@ module.exports = () => async (ctx) => {
                         [
                             Markup.callbackButton(
                                 ctx.i18n.t('button.silent_mode', {
-                                    status: ctx.i18n.t('action.a_on'),
+                                    status: ctx.user.silent
+                                        ? ctx.i18n.t('action.a_on')
+                                        : ctx.i18n.t('action.a_off'),
                                 }),
                                 `silent`
                             ),
@@ -99,9 +101,7 @@ module.exports = () => async (ctx) => {
                             ? [
                                   Markup.callbackButton(
                                       ctx.i18n.t('button.new_year_mode', {
-                                          status: ctx.user.newYear
-                                              ? ctx.i18n.t('action.a_on')
-                                              : ctx.i18n.t('action.a_off'),
+                                          status: ctx.i18n.t('action.a_on')
                                       }),
                                       `newYear`
                                   ),
@@ -111,7 +111,7 @@ module.exports = () => async (ctx) => {
                 }
             );
 
-            await ctx.answerCbQuery(ctx.i18n.t('service.silent_on'), true);
+            await ctx.answerCbQuery(ctx.i18n.t('service.newyear_on'), true);
         }
 
         await ctx.user.save();

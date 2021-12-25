@@ -1,6 +1,7 @@
-/**
- * Telegram bot that generates cute animals pictures
- * like you see on contest.com or bugs.telegram.com platforms.
- * All credits to the author of those art works.
+/*
+ * Random Animal - a Telegram bot to generate random animal names and get nice pictures of them.
+ * https://github.com/s0ftik3/random-animals
+ * Copyright (C) 2021 Vyacheslav <slava021323@gmail.com>
+ * https://github.com/s0ftik3/random-animals/blob/master/LICENSE
  */
-require('./bot');
+require('./src/bot');

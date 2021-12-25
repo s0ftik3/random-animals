@@ -2,9 +2,9 @@ language: 🇬🇧 English
 
 service:
   greeting: |
-    🎅🏻 Happy Holidays, <b>${name}</b>!
+    🎅🏻 Ho-ho-ho, <b>${name}</b>!<a href="https://i.ibb.co/wYL9rqT/preview-snow.png">ᅠ</a>
 
-    ℹ️ With this bot you can generate random animal names and get nice pictures of them.
+    With this bot you can generate random animal names and get nice pictures of them.
   new_animal_message: What have we here? This is <b>${animal_name}</b>!
   change_language: "Choose interface language:"
   language_changed: 🇬🇧 You successfully changed interface language!
@@ -14,26 +14,41 @@ service:
   username_available_3: ${username} is free and you can take it.
   silent_off: 🐵 You will see additional messages.
   silent_on: 🙈 You won't see additional messages.
-  settings: You can change the way the bot works here.
-  updating_picture: 🕗 Updating...
+  newyear_on: ❄️ Now, there will be snow behind animals!
+  settings: |
+    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+
+    🎅🏻 Santas collected: <b>${santa} / 5</b>. Generate images and collect Santas to get a unique settings option.
+  settings_all_santa: |
+    In <b>${period}</b> you generated <b>${number} ${verb}</b>.
+
+    🎅🏻 You've collected all Santas and now New Year's mode is available for you!
+  santa_caught: 🎅🏻 You've just caught Santa! Found ${santa} of 5.
+  last_santa_caught: 🎅🏻 You've just caught the last Santa! Check your settings, maybe something's changed...
+  not_a_member: ✋ Please subscribe to the developer's channel to keep generating fancy pictures. The bot is free and it's your support :)
 
 error:
   common: Something went wrong. Please try again or contact @vychs.
-  limit_exceeded: 👮🏻 Don't be in hurry!
-  not_a_member: ✋ Please subscribe to the developer's channel to keep generating fancy pictures. The bot is free and it's your support :)
+  limit_exceeded: ✋ Don't be in hurry!
 
 button:
-  new_animal: New Animal
+  new_animal: Generate
   silent_mode: "Silent Mode: ${status}"
+  new_year_mode: "New Year's mode: ${status}"
   change_lang: Change Language
   subscribe: Subscribe
   back: ‹ Back
   settings: Settings
   change_color: Change background
+  santa: 🎅🏻 Catch Santa
 
 action:
   a_on: "ON"
   a_off: "OFF"
+
+other:
+  verb_one: photo
+  verb_more: photos
   
 animal:
   ant: ant

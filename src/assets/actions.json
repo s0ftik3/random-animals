@@ -1,0 +1,5 @@
+{
+    "generate": ["Generate", "Сгенерировать", "Oluşturmak"],
+    "settings": ["Settings", "Настройки", "Ayarlar"],
+    "old_generate": ["New Animal", "Новое животное", "Yeni Hayvan"]
+}
